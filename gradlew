@@ -1,1 +1,2 @@
+cd app
 gradle wrapper
