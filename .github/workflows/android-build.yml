@@ -32,9 +32,6 @@ jobs:
       - name: Grant execute permission for Gradle
         run: chmod +x gradlew  # Fixes "gradlew not found" error
         
-      - name: Clean and Build
-        run: ./gradlew -p app clean build --refresh-dependencies --stacktrace --info
-        
       - name: Build Release APK
         run: ./gradlew -p app assembleRelease --info --stacktrace --debug --scan
 
