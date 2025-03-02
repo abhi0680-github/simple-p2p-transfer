@@ -33,7 +33,7 @@ jobs:
         run: chmod +x gradlew  # Fixes "gradlew not found" error
         
       - name: Clean and Build
-        run: ./gradlew clean build --refresh-dependencies --stacktrace --info
+        run: ./gradlew -p app clean build --refresh-dependencies --stacktrace --info
         
       - name: Build Release APK
         run: ./gradlew -p app assembleRelease --info --stacktrace --debug --scan
