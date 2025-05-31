@@ -1,6 +1,3 @@
-println "DEBUG_KEYSTORE_PASSWORD: ${System.getenv("DEBUG_KEYSTORE_PASSWORD")}"
-println "DEBUG_KEYSTORE_PASSWORD2: System.getenv("DEBUG_KEYSTORE_PASSWORD")"
-
 plugins {
     id 'com.android.application'
 }
@@ -34,6 +31,8 @@ android {
 
     signingConfigs {
         debug {
+            println "DEBUG_KEYSTORE_PASSWORD: ${System.getenv("DEBUG_KEYSTORE_PASSWORD")}"
+            println "DEBUG_KEYSTORE_PASSWORD2: System.getenv("DEBUG_KEYSTORE_PASSWORD")"
             storeFile file("/home/runner/work/simple-p2p-transfer/simple-p2p-transfer/debug.keystore")
             storePassword System.getenv("DEBUG_KEYSTORE_PASSWORD")
             keyAlias System.getenv("DEBUG_KEY_ALIAS")
