@@ -32,17 +32,16 @@ android {
     signingConfigs {
         debug {
             println "DEBUG_KEYSTORE_PASSWORD: ${System.getenv("DEBUG_KEYSTORE_PASSWORD")}"
-            println "DEBUG_KEYSTORE_PASSWORD2: System.getenv("DEBUG_KEYSTORE_PASSWORD")"
             storeFile file("/home/runner/work/simple-p2p-transfer/simple-p2p-transfer/debug.keystore")
-            storePassword System.getenv("DEBUG_KEYSTORE_PASSWORD")
-            keyAlias System.getenv("DEBUG_KEY_ALIAS")
-            keyPassword System.getenv("DEBUG_KEY_PASSWORD")
+            storePassword ${System.getenv("DEBUG_KEYSTORE_PASSWORD")}
+            keyAlias ${System.getenv("DEBUG_KEY_ALIAS")}
+            keyPassword ${System.getenv("DEBUG_KEY_PASSWORD")}
         }
         prod {
             storeFile file("prod.keystore")
-            storePassword System.getenv("PROD_KEYSTORE_PASSWORD")
-            keyAlias System.getenv("PROD_KEY_ALIAS")
-            keyPassword System.getenv("PROD_KEY_PASSWORD")
+            storePassword ${System.getenv("PROD_KEYSTORE_PASSWORD")}
+            keyAlias ${System.getenv("PROD_KEY_ALIAS")}
+            keyPassword ${System.getenv("PROD_KEY_PASSWORD")}
         }
 
     }
