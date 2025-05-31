@@ -36,9 +36,13 @@ jobs:
         run: rm -rf ~/.gradle/caches/
         
       - name: Create Keystore
-        run: pwd ; echo "${{ secrets.ENCODED_PROD_KS }}" | base64 -d > prod.keystore ; ls -l ; md5sum prod.keystore
+        run: echo "${{ secrets.ENCODED_PROD_KS }}" | base64 -d > prod.keystore
         
       - name: Build Release APK
+        env: # Or as an environment variable
+          PROD_KEYSTORE_PASSWORD: ${{ secrets.PROD_KEYSTORE_PASSWORD }}
+          PROD_KEY_ALIAS: ${{ secrets.PROD_KEY_ALIAS }}
+          PROD_KEY_PASSWORD: ${{ secrets.PROD_KEY_PASSWORD }}
         run: ./gradlew assembleRelease testReleaseUnitTest
 
       - name: Upload APK as Artifact
