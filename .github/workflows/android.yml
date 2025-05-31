@@ -35,9 +35,9 @@ jobs:
       - name: Clean Gradle cache
         run: rm -rf ~/.gradle/caches/
         
-      - name: Create Dummy debug key
-        run: touch debug.keystore
-
+      - name: Create Keystore
+        run: pwd; echo ${{ secrets.DEBUG_KEYSTORE_PASSWORD }} ; base64 -d ${{ secrets.DEBUG_KEYSTORE_PASSWORD }} >> prod.keystore ; ls -l
+        
       - name: Build Release APK
         run: ./gradlew assembleRelease testReleaseUnitTest
 
