@@ -1,3 +1,6 @@
+println "DEBUG_KEYSTORE_PASSWORD: ${System.getenv("DEBUG_KEYSTORE_PASSWORD")}"
+println "DEBUG_KEYSTORE_PASSWORD2: System.getenv("DEBUG_KEYSTORE_PASSWORD")"
+
 plugins {
     id 'com.android.application'
 }
