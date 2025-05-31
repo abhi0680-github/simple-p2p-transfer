@@ -39,7 +39,7 @@ jobs:
         run: touch debug.keystore
 
       - name: Build Release APK
-        run: ./gradlew build
+        run: ./gradlew assembleRelease testReleaseUnitTest
 
       - name: Upload APK as Artifact
         uses: actions/upload-artifact@v4
