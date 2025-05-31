@@ -34,7 +34,7 @@ jobs:
         run: pwd; keytool -genkey -v -keystore debug.keystore -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 -storepass android -keypass android -dname "CN=Android Debug,O=Android,C=US" ; ls -l
 
       - name: Build Release APK
-        run: pwd; ls-l ; ./gradlew assembleDebug
+        run: pwd; ls -l ; ./gradlew assembleDebug
 
       - name: Upload APK as Artifact
         uses: actions/upload-artifact@v4
