@@ -17,7 +17,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            signingConfig signingConfigs.prod
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         
@@ -38,7 +38,7 @@ android {
             keyAlias System.getenv("DEBUG_KEY_ALIAS")
             keyPassword System.getenv("DEBUG_KEY_PASSWORD")
         }
-        prod {
+        release {
             storeFile file("/home/runner/work/simple-p2p-transfer/simple-p2p-transfer/prod.keystore")
             storePassword System.getenv("PROD_KEYSTORE_PASSWORD")
             keyAlias System.getenv("PROD_KEY_ALIAS")
