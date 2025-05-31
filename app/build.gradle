@@ -19,10 +19,30 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        
+        debug {
+            signingConfig signingConfigs.debug
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("debug.keystore")
+            storePassword System.getenv("DEBUG_KEYSTORE_PASSWORD")
+            keyAlias System.getenv("DEBUG_KEY_ALIAS")
+            keyPassword System.getenv("DEBUG_KEY_PASSWORD")
+        }
+        prod {
+            storeFile file("prod.keystore")
+            storePassword System.getenv("PROD_KEYSTORE_PASSWORD")
+            keyAlias System.getenv("PROD_KEY_ALIAS")
+            keyPassword System.getenv("PROD_KEY_PASSWORD")
+        }
+
     }
 }
 
