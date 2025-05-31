@@ -36,7 +36,7 @@ jobs:
         run: rm -rf ~/.gradle/caches/
         
       - name: Create Keystore
-        run: pwd ; echo ${{ secrets.DEBUG_KEYSTORE_PASSWORD }} | base64 -d >> prod.keystore ; ls -l ; md5sum prod.keystore
+        run: pwd ; echo "${{ secrets.ENCODED_PROD_KS }}" | base64 -d > prod.keystore ; ls -l ; md5sum prod.keystore
         
       - name: Build Release APK
         run: ./gradlew assembleRelease testReleaseUnitTest
